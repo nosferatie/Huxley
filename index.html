@@ -2,7 +2,7 @@
 <html lang="en-us">
   <head>
     <meta charset="UTF-8">
-    <title>Huxley by jpsingleton</title>
+    <title>Huxley by nosferatie</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
@@ -13,9 +13,9 @@
     <section class="page-header">
       <h1 class="project-name">Huxley</h1>
       <h2 class="project-tagline">A simple JSON proxy for the UK National Rail Live Departure Board SOAP API</h2>
-      <a href="https://github.com/jpsingleton/Huxley" class="btn">View on GitHub</a>
-      <a href="https://github.com/jpsingleton/Huxley/zipball/master" class="btn">Download .zip</a>
-      <a href="https://github.com/jpsingleton/Huxley/tarball/master" class="btn">Download .tar.gz</a>
+      <a href="https://github.com/nosferatie/Huxley" class="btn">View on GitHub</a>
+      <a href="https://github.com/nosferatie/Huxley/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/nosferatie/Huxley/tarball/master" class="btn">Download .tar.gz</a>
     </section>
 
     <section class="main-content">
@@ -58,17 +58,17 @@
 <p>Paste this into your web console <kbd>F12</kbd>:</p>
 
 <div class="highlight highlight-source-js"><pre><span class="pl-k">var</span> r <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">XMLHttpRequest</span>();
-r.<span class="pl-c1">open</span>(<span class="pl-s"><span class="pl-pds">"</span>GET<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>https://huxley.apphb.com/all/stp/from/bxs/1?accessToken=DA1C7740-9DA0-11E4-80E6-A920340000B1<span class="pl-pds">"</span></span>, <span class="pl-c1">true</span>);
+<span class="pl-smi">r</span>.<span class="pl-c1">open</span>(<span class="pl-s"><span class="pl-pds">"</span>GET<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>https://huxley.apphb.com/all/stp/from/bxs/1?accessToken=DA1C7740-9DA0-11E4-80E6-A920340000B1<span class="pl-pds">"</span></span>, <span class="pl-c1">true</span>);
 <span class="pl-c1">r</span>.<span class="pl-en">onreadystatechange</span> <span class="pl-k">=</span> <span class="pl-k">function</span> () {
-    <span class="pl-k">if</span> (r.<span class="pl-c1">readyState</span> <span class="pl-k">!=</span> <span class="pl-c1">4</span> <span class="pl-k">||</span> r.<span class="pl-c1">status</span> <span class="pl-k">!=</span> <span class="pl-c1">200</span>) <span class="pl-k">return</span>;
-    <span class="pl-k">var</span> resp <span class="pl-k">=</span> <span class="pl-c1">JSON</span>.<span class="pl-c1">parse</span>(r.response);
-    <span class="pl-k">if</span> (resp.trainServices <span class="pl-k">&amp;&amp;</span> resp.trainServices.<span class="pl-c1">length</span> <span class="pl-k">&gt;</span> <span class="pl-c1">0</span>) {
-        <span class="pl-c1">alert</span>(<span class="pl-s"><span class="pl-pds">"</span>The next train to arrive at <span class="pl-pds">"</span></span> <span class="pl-k">+</span> resp.locationName <span class="pl-k">+</span> <span class="pl-s"><span class="pl-pds">"</span> from <span class="pl-pds">"</span></span> <span class="pl-k">+</span> resp.filterLocationName <span class="pl-k">+</span> <span class="pl-s"><span class="pl-pds">"</span> will get in at <span class="pl-pds">"</span></span> <span class="pl-k">+</span> resp.trainServices[<span class="pl-c1">0</span>].sta);
+    <span class="pl-k">if</span> (<span class="pl-smi">r</span>.<span class="pl-c1">readyState</span> <span class="pl-k">!=</span> <span class="pl-c1">4</span> <span class="pl-k">||</span> <span class="pl-smi">r</span>.<span class="pl-c1">status</span> <span class="pl-k">!=</span> <span class="pl-c1">200</span>) <span class="pl-k">return</span>;
+    <span class="pl-k">var</span> resp <span class="pl-k">=</span> <span class="pl-smi">JSON</span>.<span class="pl-c1">parse</span>(<span class="pl-smi">r</span>.<span class="pl-smi">response</span>);
+    <span class="pl-k">if</span> (<span class="pl-smi">resp</span>.<span class="pl-smi">trainServices</span> <span class="pl-k">&amp;&amp;</span> <span class="pl-smi">resp</span>.<span class="pl-smi">trainServices</span>.<span class="pl-c1">length</span> <span class="pl-k">&gt;</span> <span class="pl-c1">0</span>) {
+        <span class="pl-c1">alert</span>(<span class="pl-s"><span class="pl-pds">"</span>The next train to arrive at <span class="pl-pds">"</span></span> <span class="pl-k">+</span> <span class="pl-smi">resp</span>.<span class="pl-smi">locationName</span> <span class="pl-k">+</span> <span class="pl-s"><span class="pl-pds">"</span> from <span class="pl-pds">"</span></span> <span class="pl-k">+</span> <span class="pl-smi">resp</span>.<span class="pl-smi">filterLocationName</span> <span class="pl-k">+</span> <span class="pl-s"><span class="pl-pds">"</span> will get in at <span class="pl-pds">"</span></span> <span class="pl-k">+</span> <span class="pl-smi">resp</span>.<span class="pl-smi">trainServices</span>[<span class="pl-c1">0</span>].<span class="pl-smi">sta</span>);
     } <span class="pl-k">else</span> {
-        <span class="pl-c1">alert</span>(<span class="pl-s"><span class="pl-pds">"</span>Sorry, no trains from <span class="pl-pds">"</span></span> <span class="pl-k">+</span> resp.filterLocationName <span class="pl-k">+</span> <span class="pl-s"><span class="pl-pds">"</span> arriving soon<span class="pl-pds">"</span></span>);
+        <span class="pl-c1">alert</span>(<span class="pl-s"><span class="pl-pds">"</span>Sorry, no trains from <span class="pl-pds">"</span></span> <span class="pl-k">+</span> <span class="pl-smi">resp</span>.<span class="pl-smi">filterLocationName</span> <span class="pl-k">+</span> <span class="pl-s"><span class="pl-pds">"</span> arriving soon<span class="pl-pds">"</span></span>);
     }
 };
-r.<span class="pl-c1">send</span>();</pre></div>
+<span class="pl-smi">r</span>.<span class="pl-c1">send</span>();</pre></div>
 
 <p>If you want to use this proxy then you should deploy the code to your own <a href="https://appharbor.com/">App Harbor</a> or <a href="https://azure.microsoft.com/en-gb/">Azure</a> account.
 If you deploy to the App Harbor Europe AWS region then this will run very close to the NRE servers.</p>
@@ -261,7 +261,7 @@ Append the <code>accessToken={Your GUID token}</code> parameter to the query str
 <p>Contains public sector information licensed under the Open Government Licence v3.0.</p>
 
       <footer class="site-footer">
-        <span class="site-footer-owner"><a href="https://github.com/jpsingleton/Huxley">Huxley</a> is maintained by <a href="https://github.com/jpsingleton">jpsingleton</a>.</span>
+        <span class="site-footer-owner"><a href="https://github.com/nosferatie/Huxley">Huxley</a> is maintained by <a href="https://github.com/nosferatie">nosferatie</a>.</span>
 
         <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
       </footer>
